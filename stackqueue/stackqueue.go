@@ -54,8 +54,6 @@ type Queue interface {
 }
 
 type Dequeue interface {
-	Queue
-
 	// Inserts the specified element at the front of this deque if it is possible to do so immediately
 	// without violating capacity restrictions, return an ErrNoSpace if no space is currently available.
 	AddFirst(e interface{}) error
@@ -83,10 +81,10 @@ type Dequeue interface {
 	PollLast() interface{}
 
 	// Retrieves, but does not remove, the first element of this deque.
-	GetFirst() interface{}
+	GetFirst() (interface{}, error)
 
 	// Retrieves, but does not remove, the last element of this deque.
-	GetLast() interface{}
+	GetLast() (interface{}, error)
 
 	// Retrieves, but does not remove, the first element of this deque, or returns nil if this deque is empty
 	PeekFirst() interface{}

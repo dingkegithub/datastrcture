@@ -68,7 +68,7 @@ func (a *ArrayList) AddIdx(idx int, e interface{}) (bool, error) {
 	a.mutex.Lock()
 	defer a.mutex.Unlock()
 
-	if idx >= a.size {
+	if idx > a.size {
 		return false, ErrOutOfMemory
 	}
 
