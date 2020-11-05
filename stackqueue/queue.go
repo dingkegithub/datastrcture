@@ -6,6 +6,7 @@ import (
 
 var (
 	ErrNoSpace = fmt.Errorf("no space")
+	ErrBlank   = fmt.Errorf("blank container")
 )
 
 type Stack interface {
@@ -13,10 +14,10 @@ type Stack interface {
 	Empty() bool
 
 	// Looks at the object at the top of this stack without removing it from the stack.
-	Peek() interface{}
+	Peek() (interface{}, error)
 
 	// Removes the object at the top of this stack and returns that object as the value of this function.
-	Pop() interface{}
+	Pop() (interface{}, error)
 
 	// Pushes an item onto the top of this stack.
 	Push(e interface{}) bool
