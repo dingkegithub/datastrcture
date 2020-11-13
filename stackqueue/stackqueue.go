@@ -91,4 +91,6 @@ type Dequeue interface {
 
 	// Retrieves, but does not remove, the last element of this deque, or returns nil if this deque is empty.
 	PeekLast() interface{}
+
+	Empty() bool
 }

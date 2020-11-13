@@ -25,6 +25,10 @@ type defaultDqueue struct {
 	data     array.Array
 }
 
+func (dq *defaultDqueue) Empty() bool {
+	return dq.data.Empty()
+}
+
 func NewDequeue(opts ...utils.ParamOptionFunc) Dequeue {
 	dq := &defaultDqueue{
 		capacity: 10,
